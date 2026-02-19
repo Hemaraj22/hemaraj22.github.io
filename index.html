@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemaraj Narasimharaju | Data Analyst Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A1628;
+            --secondary: #1E3A5F;
+            --accent: #2D5F8D;
+            --highlight: #4A9ECC;
+            --text: #E8EDF3;
+            --text-muted: #A8B5C7;
+            --card-bg: #132338;
+            --card-border: #1E3A5F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: linear-gradient(135deg, var(--primary) 0%, #0D1B2E 50%, var(--secondary) 100%);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            margin-bottom: 80px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--text) 0%, var(--highlight) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .contact-links a {
+            color: var(--highlight);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: var(--card-bg);
+            border-color: var(--highlight);
+            transform: translateY(-2px);
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--highlight), transparent);
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-muted);
+            max-width: 900px;
+            margin-bottom: 32px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 28px;
+            transition: all 0.4s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--highlight);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(74, 158, 204, 0.15);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: var(--highlight);
+            font-weight: 600;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skill-category li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--highlight), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            border-color: var(--highlight);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(74, 158, 204, 0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .project-card .project-type {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--highlight);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            background: rgba(74, 158, 204, 0.1);
+            color: var(--highlight);
+            padding: 4px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(74, 158, 204, 0.2);
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--highlight);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border: 1px solid var(--highlight);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+        }
+
+        .project-link:hover {
+            background: var(--highlight);
+            color: var(--primary);
+        }
+
+        .project-link.coming-soon {
+            border-color: var(--text-muted);
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .project-link.coming-soon:hover {
+            background: transparent;
+            color: var(--text-muted);
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--highlight), transparent);
+        }
+
+        .experience-item {
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -45px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--highlight);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--card-bg);
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .experience-item .company {
+            font-size: 1.1rem;
+            color: var(--highlight);
+            margin-bottom: 4px;
+        }
+
+        .experience-item .date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+        }
+
+        .experience-item li {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .experience-item li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 40px 24px;
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-card {
+            animation: slideUp 0.6s ease-out both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hemaraj Narasimharaju</h1>
+            <p class="subtitle">Data Analyst | Machine Learning Enthusiast | Analytics Engineer</p>
+            <div class="contact-links">
+                <a href="mailto:hemarajnarasimharaju@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/hemaraj-narasimharaju" target="_blank">LinkedIn</a>
+                <a href="https://github.com/hemaraj22" target="_blank">GitHub</a>
+                <a href="tel:+15715646260">+1 (571) 564-6260</a>
+            </div>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p class="about-text">
+                I'm a Data Analyst pursuing my Master's in Data Analytics at George Mason University with a strong foundation in machine learning, statistical analysis, and data visualization. With experience analyzing large-scale datasets and building predictive models, I transform complex data into actionable insights that drive business decisions. My work spans sustainability analytics, automotive performance optimization, and compliance intelligence systems.
+            </p>
+            <p class="about-text">
+                Currently working on solar energy analytics and developing AI-driven solutions for financial compliance. I'm passionate about leveraging data to solve real-world problems and making data-driven insights accessible through compelling visualizations.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Analytics</h3>
+                    <ul>
+                        <li>Python (Pandas, NumPy, Scikit-learn)</li>
+                        <li>R, SQL</li>
+                        <li>Statistical Analysis & EDA</li>
+                        <li>Machine Learning</li>
+                        <li>Data Mining</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Management</h3>
+                    <ul>
+                        <li>MySQL, Oracle, MongoDB</li>
+                        <li>ETL Pipelines</li>
+                        <li>Data Warehousing</li>
+                        <li>Data Quality Management</li>
+                        <li>Database Administration</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Visualization & BI</h3>
+                    <ul>
+                        <li>Tableau, Power BI</li>
+                        <li>Interactive Dashboards</li>
+                        <li>Data Storytelling</li>
+                        <li>KPI Tracking</li>
+                        <li>Excel (Advanced)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & Tools</h3>
+                    <ul>
+                        <li>AWS</li>
+                        <li>Jupyter Notebook</li>
+                        <li>Google Colab</li>
+                        <li>Git & Version Control</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card stagger-1">
+                    <div class="project-type">Machine Learning • Compliance</div>
+                    <h3>KYC & AML Intelligence Platform</h3>
+                    <p>AI-driven system for detecting suspicious financial transactions, processing 100K+ records with 90% detection accuracy. Built risk scoring using 20+ transaction indicators, reducing analyst review time by 40%.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">ML</span>
+                        <span class="tech-tag">Risk Modeling</span>
+                    </div>
+                    <a href="#" class="project-link coming-soon">Code Coming Soon</a>
+                </div>
+
+                <div class="project-card stagger-2">
+                    <div class="project-type">Statistical Analysis • Fairness AI</div>
+                    <h3>Felony Sentencing Outcomes Analysis</h3>
+                    <p>Examined 24K+ sentencing records in Washington DC to uncover offense-driven patterns. Trained Linear Regression and Random Forest models achieving R² up to 0.85, revealing subtle demographic disparities through fairness-aware analysis.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">EDA</span>
+                    </div>
+                    <a href="https://github.com/hemaraj22/felony-sentencing-analysis" target="_blank" class="project-link">View Code →</a>
+                </div>
+
+                <div class="project-card stagger-3">
+                    <div class="project-type">Regression • Feature Engineering</div>
+                    <h3>House Price Prediction</h3>
+                    <p>Analyzed 2,930 housing records from Ames dataset using ensemble ML techniques. Achieved 92% prediction accuracy through ridge, lasso, and random forest regression with advanced feature engineering and log transformation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Random Forest</span>
+                        <span class="tech-tag">Ridge/Lasso</span>
+                        <span class="tech-tag">Feature Engineering</span>
+                    </div>
+                    <a href="https://github.com/hemaraj22/house-price-prediction" target="_blank" class="project-link">View Code →</a>
+                </div>
+
+                <div class="project-card stagger-4">
+                    <div class="project-type">Predictive Analytics • Education</div>
+                    <h3>Student Performance & Retention Analytics</h3>
+                    <p>Investigated 50K+ student records identifying attendance as key driver of 25% performance variation. Built interactive dashboards and performed cohort analysis to flag students with 2× dropout likelihood, enabling early intervention.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Cohort Analysis</span>
+                    </div>
+                    <a href="#" class="project-link coming-soon">Code Coming Soon</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3>Data Analyst</h3>
+                    <p class="company">Data Science for Sustainable Development, George Mason University</p>
+                    <p class="date">October 2024 – Present | Fairfax, VA</p>
+                    <ul>
+                        <li>Developed interactive analytics dashboard using Python, SQL, and Tableau to track solar energy output, cost savings, and CO₂ reduction for municipal-scale datasets (10K+ records)</li>
+                        <li>Cleaned and processed time-series energy data with 98% accuracy across multiple reporting periods</li>
+                        <li>Delivered high-impact visual insights that improved stakeholder decision-making speed by 25%</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Data Analyst Intern</h3>
+                    <p class="company">Nandi Toyota</p>
+                    <p class="date">November 2023 – July 2024 | Bengaluru, India</p>
+                    <ul>
+                        <li>Transformed and analyzed 50,000+ automotive performance records using Python and Power BI, uncovering fuel efficiency trends that increased customer satisfaction by 18%</li>
+                        <li>Deployed ML models (Random Forest, Linear Regression) to predict vehicle maintenance with 95% accuracy, reducing downtime by 15%</li>
+                        <li>Administered MySQL databases with 100K+ transaction records and generated automated Tableau dashboards, eliminating 15 hours of weekly manual reporting</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3>Master of Science in Data Analytics</h3>
+                    <p class="company">George Mason University</p>
+                    <p class="date">Expected Graduation: August 2026 | Fairfax, Virginia</p>
+                    <ul>
+                        <li>GPA: 3.78/4.00</li>
+                        <li>Concentrations: Machine Learning, Big Data, Applied Statistics</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Bachelor of Technology in Computer Science</h3>
+                    <p class="company">Dayananda Sagar University</p>
+                    <p class="date">May 2024 | Bangalore, India</p>
+                    <ul>
+                        <li>GPA: 8.02/10</li>
+                        <li>Concentrations: Data Analytics, Machine Learning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Hemaraj Narasimharaju. Built with passion for data analytics.</p>
+        </footer>
+    </div>
+</body>
+</html>
