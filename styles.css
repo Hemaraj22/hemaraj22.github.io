@@ -536,3 +536,7 @@ footer {
 .project-item {
     animation: slideUp 0.6s ease-out both;
 }
+
+.header-content h2::after {
+    display: none;
+}
