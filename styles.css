@@ -55,8 +55,8 @@ header {
 }
 
 .profile-photo {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
     border-radius: 12px;
     object-fit: cover;
     border: 3px solid var(--highlight);
@@ -124,6 +124,56 @@ section {
     margin-bottom: 80px;
 }
 
+#about {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-left: 5px solid var(--highlight);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(74, 158, 204, 0.15);
+    transition: all 0.3s ease;
+}
+
+#about:hover {
+    border-left-color: var(--accent);
+    box-shadow: 0 12px 48px rgba(74, 158, 204, 0.25);
+    transform: translateX(5px);
+}
+
+#experience {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-left: 5px solid var(--highlight);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(74, 158, 204, 0.15);
+    transition: all 0.3s ease;
+}
+
+#experience:hover {
+    border-left-color: var(--accent);
+    box-shadow: 0 12px 48px rgba(74, 158, 204, 0.25);
+    transform: translateX(5px);
+}
+
+#education {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-left: 5px solid var(--highlight);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(74, 158, 204, 0.15);
+    transition: all 0.3s ease;
+}
+
+#education:hover {
+    border-left-color: var(--accent);
+    box-shadow: 0 12px 48px rgba(74, 158, 204, 0.25);
+    transform: translateX(5px);
+}
+
+
+
 h2 {
     font-size: 2.5rem;
     margin-bottom: 40px;
@@ -148,6 +198,20 @@ h2::after {
     color: var(--text-muted);
     max-width: 900px;
     margin-bottom: 32px;
+    position: relative;
+    padding-left: 20px;
+    text-align: justify;
+}
+
+.about-text:first-of-type::before { 
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 3rem;
+    color: var(--highlight);
+    opacity: 0.3;
+    font-family: Georgia, serif;
 }
 
 .skills-grid {
@@ -543,4 +607,106 @@ footer {
 
 h3 {
     font-size: 1.8rem;
+}
+
+.contact-links a[download] {
+    background: var(--highlight);
+    color: var(--primary);
+    font-weight: 700;
+    border-color: var(--highlight);
+}
+
+.contact-links a[download]:hover {
+    background: transparent;
+    color: var(--highlight);
+}
+.resume-btn-wrap {
+    margin-top: 16px;
+}
+
+.resume-btn-wrap a {
+    background: var(--highlight);
+    color: var(--primary);
+    font-weight: 700;
+    border-color: var(--highlight);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-right: 16px;
+    gap: 24px;
+}
+
+
+.resume-btn-wrap a:hover {
+    background: transparent;
+    color: var(--highlight);
+    transform: translateY(-2px);
+}
+.floating-nav {
+    position: relative;
+    background: rgba(10, 22, 40, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 100px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    width: fit-content;
+    margin: 0 auto 40px auto;
+    left: 0;
+    right: 0;
+}
+
+.nav-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-right: 8px;
+}
+
+.floating-nav a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.floating-nav a:hover {
+    color: var(--text);
+}
+
+.nav-cta {
+    background: var(--text) !important;
+    color: var(--primary) !important;
+    padding: 8px 20px !important;
+    border-radius: 100px;
+    font-weight: 700 !important;
+    transition: all 0.2s ease !important;
+}
+
+.nav-cta:hover {
+    background: var(--highlight) !important;
+    color: var(--primary) !important;
+    transform: scale(1.05);
+}
+
+.container {
+    padding: 60px 40px;
+}
+
+.nav-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0 0 0;
+    margin-bottom: -40px;
 }
